@@ -25,5 +25,28 @@ namespace GildedRoseTests
             Assert.That(item.Quality, Is.EqualTo(9));
         }
 
+        [Test]
+        public void NormalItem_QualityDegradesTwice_AsSellInExpires()   // function names say it all actually
+        {
+            var item = new Item { Name = "Basic Item", SellIn = 0, Quality = 10 };
+            var app = new GildedRose(new List<Item> { item });
+
+            app.UpdateQuality();
+
+            Assert.That(item.SellIn, Is.EqualTo(-1));
+            Assert.That(item.Quality, Is.EqualTo(8));
+        }
+
+        [Test]
+        public void NormalItem_QualityNeverGoesNegative()
+        {
+            var item = new Item { Name = "Basic Item", SellIn = 0, Quality = 0 };
+            var app = new GildedRose(new List<Item> { item });
+
+            app.UpdateQuality();
+
+            Assert.That(item.SellIn, Is.EqualTo(-1));
+            Assert.That(item.Quality, Is.EqualTo(0));
+        }
     }
 }
