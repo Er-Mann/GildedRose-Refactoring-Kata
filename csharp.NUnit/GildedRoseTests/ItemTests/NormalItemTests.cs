@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 using NUnit.Framework;
 using GildedRoseKata;
-using System.Collections.Generic;
 
 namespace GildedRoseTests
 {
