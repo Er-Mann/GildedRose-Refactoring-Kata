@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace GildedRoseKata
 {
-    internal class Class1
+    public class SulfurasUpdate : IUpdate
     {
+        public void Update(Item item)
+        { 
+            item.Quality = 80;      
+        }
     }
 }
